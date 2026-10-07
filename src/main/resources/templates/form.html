@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Produce form</title></head>
+<body>
+<h1>Produce batch</h1>
+<form th:action="@{/produce}" th:object="${produce}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <p>Name: <input th:field="*{name}" required/></p>
+  <p>Farm: <input th:field="*{farm}" required/></p>
+  <p>Harvest date: <input th:field="*{harvestDate}" placeholder="yyyy-MM-dd" required/></p>
+  <button type="submit" id="save">Save</button>
+</form>
+<p><a th:href="@{/produce}">Back</a></p>
+</body>
+</html>

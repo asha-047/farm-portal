@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Farm Portal</title></head>
+<body>
+<h1>Farm Produce Traceability Portal</h1>
+<p><a th:href="@{/produce}">All batches</a> | <a th:href="@{/produce/new}">Add batch</a> | <a th:href="@{/dashboard}">Dashboard</a></p>
+<p id="msg" th:if="${msg}" th:text="${msg}"></p>
+
+<form th:action="@{/produce}" method="get">
+  <input name="q" th:value="${q}" placeholder="Search name or farm"/>
+  <button type="submit" id="search">Search</button>
+</form>
+
+<table border="1" cellpadding="6">
+  <tr><th>ID</th><th>Name</th><th>Farm</th><th>Harvest date</th><th>Status</th><th>Actions</th></tr>
+  <tr th:each="p : ${items}">
+    <td th:text="${p.id}"></td>
+    <td th:text="${p.name}"></td>
+    <td th:text="${p.farm}"></td>
+    <td th:text="${p.harvestDate}"></td>
+    <td th:text="${p.status}"></td>
+    <td>
+      <a th:href="@{/produce/{id}/edit(id=${p.id})}">Edit</a>
+      <form th:action="@{/produce/{id}/advance(id=${p.id})}" method="post" style="display:inline">
+        <select name="role">
+          <option>FARMER</option><option>DISTRIBUTOR</option><option>RETAILER</option><option>ADMIN</option>
+        </select>
+        <button type="submit" class="advance">Advance</button>
+      </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
