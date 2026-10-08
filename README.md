@@ -1,4 +1,4 @@
-# Farm Produce Traceability Portal
+# Farm Portal - Version A
 Track farm produce from farm to market.
 
 ## Run locally
