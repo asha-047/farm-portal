@@ -17,6 +17,15 @@ pipeline {
         stage('Build') {
             steps { sh 'mvn -B clean package -DskipTests' }
         }
+        stage('Test') {
+            steps { sh 'mvn -B test' }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                    archiveArtifacts artifacts: 'target/screenshots/*.png', allowEmptyArchive: true
+                }
+            }
+        }
         stage('Package') {
             steps { archiveArtifacts artifacts: 'target/*.war', fingerprint: true }
         }
