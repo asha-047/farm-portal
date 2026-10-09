@@ -2,6 +2,10 @@ package com.farm.portal;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 import java.nio.file.*;
 import org.junit.jupiter.api.*;
@@ -32,6 +36,16 @@ class FarmUiTest {
 
     private String url(String path) { return "http://localhost:" + port + path; }
 
+    private boolean waitForText(String text) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"), text));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
     private void addBatch(String name, String farm) {
         driver.get(url("/produce/new"));
         driver.findElement(By.id("name")).sendKeys(name);
@@ -43,7 +57,7 @@ class FarmUiTest {
     @Test
     void addRecord() {
         addBatch("Tomato", "Farm A");
-        assertTrue(driver.getPageSource().contains("Tomato"));
+        assertTrue(waitForText("Tomato"));
     }
 
     @Test
@@ -59,7 +73,7 @@ class FarmUiTest {
         driver.get(url("/produce?q=Onion"));
         new Select(driver.findElement(By.name("role"))).selectByVisibleText("DISTRIBUTOR");
         driver.findElement(By.className("advance")).click();
-        assertTrue(driver.getPageSource().contains("IN_TRANSIT"));
+        assertTrue(waitForText("IN_TRANSIT"));
     }
 
     @Test
