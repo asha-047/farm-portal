@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><meta charset="UTF-8"><title>Produce form</title></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produce form</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
 <body>
-<h1>Add / Edit Produce Batch</h1>
-<form th:action="@{/produce}" th:object="${produce}" method="post">
-  <input type="hidden" th:field="*{id}"/>
-  <p>Name: <input th:field="*{name}" required/></p>
-  <p>Farm: <input th:field="*{farm}" required/></p>
-  <p>Harvest date: <input th:field="*{harvestDate}" placeholder="yyyy-MM-dd" required/></p>
-  <button type="submit" id="save">Save</button>
-</form>
-<p><a th:href="@{/produce}">Back</a></p>
+<nav class="navbar">
+  <span class="brand">🌾 Farm Produce Traceability Portal</span>
+  <div class="links">
+    <a th:href="@{/produce}">All batches</a>
+    <a th:href="@{/produce/new}">Add batch</a>
+    <a th:href="@{/dashboard}">Dashboard</a>
+  </div>
+</nav>
+
+<main class="container">
+  <h1>Add / Edit Produce Batch</h1>
+  <div class="card form-card">
+    <form th:action="@{/produce}" th:object="${produce}" method="post">
+      <input type="hidden" th:field="*{id}"/>
+
+      <label for="name">Name</label>
+      <input th:field="*{name}" placeholder="e.g. Tomato" required/>
+
+      <label for="farm">Farm</label>
+      <input th:field="*{farm}" placeholder="e.g. Farm A" required/>
+
+      <label for="harvestDate">Harvest date</label>
+      <input th:field="*{harvestDate}" placeholder="yyyy-MM-dd" required/>
+
+      <div class="form-actions">
+        <button type="submit" id="save">Save</button>
+        <a class="btn btn-light" th:href="@{/produce}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</main>
 </body>
 </html>

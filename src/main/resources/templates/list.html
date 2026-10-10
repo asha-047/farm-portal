@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><meta charset="UTF-8"><title>Farm Portal</title></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farm Portal</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
 <body>
-<h1>Farm Produce Traceability Portal</h1>
-<p><a th:href="@{/produce}">All batches</a> | <a th:href="@{/produce/new}">Add batch</a> | <a th:href="@{/dashboard}">Dashboard</a></p>
-<p id="msg" th:if="${msg}" th:text="${msg}"></p>
+<nav class="navbar">
+  <span class="brand">🌾 Farm Produce Traceability Portal</span>
+  <div class="links">
+    <a th:href="@{/produce}">All batches</a>
+    <a th:href="@{/produce/new}">Add batch</a>
+    <a th:href="@{/dashboard}">Dashboard</a>
+  </div>
+</nav>
 
-<form th:action="@{/produce}" method="get">
-  <input name="q" th:value="${q}" placeholder="Search name or farm"/>
-  <button type="submit" id="search">Search</button>
-</form>
+<main class="container">
+  <h1>Produce Batches</h1>
+  <p id="msg" class="alert" th:if="${msg}" th:text="${msg}"></p>
 
-<table border="1" cellpadding="6">
-  <tr><th>ID</th><th>Name</th><th>Farm</th><th>Harvest date</th><th>Status</th><th>Actions</th></tr>
-  <tr th:each="p : ${items}">
-    <td th:text="${p.id}"></td>
-    <td th:text="${p.name}"></td>
-    <td th:text="${p.farm}"></td>
-    <td th:text="${p.harvestDate}"></td>
-    <td th:text="${p.status}"></td>
-    <td>
-      <a th:href="@{/produce/{id}/edit(id=${p.id})}">Edit</a>
-      <form th:action="@{/produce/{id}/advance(id=${p.id})}" method="post" style="display:inline">
-        <select name="role">
-          <option>FARMER</option><option>DISTRIBUTOR</option><option>RETAILER</option><option>ADMIN</option>
-        </select>
-        <button type="submit" class="advance">Advance</button>
-      </form>
-    </td>
-  </tr>
-</table>
+  <form class="search" th:action="@{/produce}" method="get">
+    <input name="q" th:value="${q}" placeholder="Search by name or farm"/>
+    <button type="submit" id="search">Search</button>
+  </form>
+
+  <div class="card">
+    <table>
+      <tr><th>ID</th><th>Name</th><th>Farm</th><th>Harvest date</th><th>Status</th><th>Actions</th></tr>
+      <tr th:if="${#lists.isEmpty(items)}">
+        <td colspan="6" class="empty">No batches found. Click "Add batch" to create one.</td>
+      </tr>
+      <tr th:each="p : ${items}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.farm}"></td>
+        <td th:text="${p.harvestDate}"></td>
+        <td><span class="badge" th:classappend="${'badge-' + p.status}" th:text="${p.status}"></span></td>
+        <td>
+          <div class="actions">
+            <a class="btn btn-light" th:href="@{/produce/{id}/edit(id=${p.id})}">Edit</a>
+            <form th:action="@{/produce/{id}/advance(id=${p.id})}" method="post">
+              <select name="role">
+                <option>FARMER</option><option>DISTRIBUTOR</option><option>RETAILER</option><option>ADMIN</option>
+              </select>
+              <button type="submit" class="advance">Advance</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</main>
 </body>
 </html>

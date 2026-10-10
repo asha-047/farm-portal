@@ -1,0 +1,4 @@
+[mNotice: Compiled catalog for desktop-ljfcmno.localdomain in environment production in 0.46 seconds[0m
+[mNotice: /Stage[main]/Main/File[/opt/farm/deployed-version.txt]/content: content changed '{sha256}aa351aaa03afde6ad11e98900696241a9cf2b5b4e58264389baeff99c1c2620d' to '{sha256}1cab01844dd8888c9f0197c6edaf5ceb8e7bee544964340e6a19f241dc4fe721'[0m
+[mNotice: /Stage[main]/Main/Exec[run-farm-container]/returns: executed successfully[0m
+[mNotice: Applied catalog in 34.95 seconds[0m

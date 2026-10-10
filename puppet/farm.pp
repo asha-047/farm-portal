@@ -1,5 +1,7 @@
-$image = 'YOUR_DOCKERHUB_USER/farm-portal'
-$tag   = $facts['farm_tag'] ? { undef => 'latest', default => $facts['farm_tag'] }
+$image     = 'asha047/farm-portal'
+$tag       = $facts['farm_tag'] ? { undef => 'latest', default => $facts['farm_tag'] }
+$container = 'farm-puppet'
+$host_port = '8084'
 
 package { 'docker.io':
   ensure => installed,
@@ -39,11 +41,12 @@ file { '/opt/farm/deployed-version.txt':
   require => File['/opt/farm'],
 }
 
-# Runs the container only if the right version is not already running
+# Starts the container only if the wanted version is not already running
 exec { 'run-farm-container':
   provider => shell,
-  command  => "docker rm -f farm; docker run -d --name farm --restart always -p 8083:8081 ${image}:${tag}",
-  unless   => "docker ps --filter name=farm --filter ancestor=${image}:${tag} -q | grep -q .",
+  command  => "docker rm -f ${container}; docker run -d --name ${container} --restart always -p ${host_port}:8081 ${image}:${tag}",
+  unless   => "docker ps --filter name=${container} --filter ancestor=${image}:${tag} -q | grep -q .",
   path     => ['/bin', '/usr/bin'],
-  require  => Service['docker'],
+  timeout  => 600,
+  require  => [Service['docker'], File['/opt/farm/deployed-version.txt']],
 }
