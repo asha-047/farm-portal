@@ -57,7 +57,7 @@ pipeline {
                 sh 'docker run -d --name farm -p 8083:8081 $IMAGE:$BUILD_NUMBER'
                 sh '''
                     for i in $(seq 1 12); do
-                      curl -sf http://localhost:8083/produce > /dev/null && echo "Health check passed" && exit 0
+                      curl -sf http://localhost:8083/login > /dev/null && echo "Health check passed" && exit 0
                       sleep 5
                     done
                     echo "Health check failed"; exit 1

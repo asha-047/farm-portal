@@ -105,3 +105,7 @@ tr:hover td { background: #fafdfa; }
 .stat-label { color: #555; margin-top: 4px; }
 .stat.total { background: #2e7d32; }
 .stat.total .stat-number, .stat.total .stat-label { color: #fff; }
+
+.userbox { margin-left: 18px; font-size: 0.9rem; opacity: 0.95; }
+.logout-form { display: inline; margin: 0 0 0 12px; }
+.logout-form button { padding: 5px 12px; }
