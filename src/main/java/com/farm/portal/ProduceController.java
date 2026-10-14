@@ -1,6 +1,7 @@
 package com.farm.portal;
 
 import java.util.List;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ public class ProduceController {
 
     @GetMapping("/")
     public String home() { return "redirect:/produce"; }
+
+    @GetMapping("/login")
+    public String login() { return "login"; }
 
     @GetMapping("/produce")
     public String list(@RequestParam(required = false) String q, Model m) {
@@ -52,9 +56,10 @@ public class ProduceController {
         return "redirect:/produce";
     }
 
-    // Role-based status workflow: Farmer -> Distributor -> Retailer
+    // Role comes from the logged-in user: Farmer -> Distributor -> Retailer (Admin: any step)
     @PostMapping("/produce/{id}/advance")
-    public String advance(@PathVariable Long id, @RequestParam String role, RedirectAttributes ra) {
+    public String advance(@PathVariable Long id, Authentication auth, RedirectAttributes ra) {
+        String role = auth.getAuthorities().iterator().next().getAuthority().replace("ROLE_", "");
         Produce p = repo.findById(id).orElseThrow();
         Status s = p.getStatus();
         boolean allowed = role.equals("ADMIN")
