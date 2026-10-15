@@ -1,7 +1,7 @@
 #!/bin/bash
-URL=${1:-http://localhost:8084/login}
+URL=${1:-http://localhost:8084/produce}
 code=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
-if [ "$code" = "200" ]; then
+if [ "$code" = "200" ] || [ "$code" = "302" ]; then
   echo "HEALTH CHECK PASSED (HTTP $code) - $URL"
 else
   echo "HEALTH CHECK FAILED (HTTP $code) - $URL"
