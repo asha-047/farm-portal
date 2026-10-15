@@ -26,6 +26,7 @@ public class ProduceController {
                 : repo.findByNameContainingIgnoreCaseOrFarmContainingIgnoreCase(q, q);
         m.addAttribute("items", items);
         m.addAttribute("q", q);
+        m.addAttribute("statuses", Status.values());
         return "list";
     }
 
@@ -75,6 +76,17 @@ public class ProduceController {
         return "redirect:/produce";
     }
 
+        // Admin only: correct a wrong status (any direction, e.g. IN_TRANSIT back to HARVESTED)
+    @PostMapping("/produce/{id}/status")
+    public String setStatus(@PathVariable Long id, @RequestParam Status status, RedirectAttributes ra) {
+        Produce p = repo.findById(id).orElseThrow();
+        Status old = p.getStatus();
+        p.setStatus(status);
+        repo.save(p);
+        ra.addFlashAttribute("msg", "Admin correction: status changed from " + old + " to " + status);
+        return "redirect:/produce";
+    }
+    
     @GetMapping("/dashboard")
     public String dashboard(Model m) {
         m.addAttribute("total", repo.count());

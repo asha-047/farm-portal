@@ -48,6 +48,12 @@
                   th:if="${(role == 'ADMIN' and p.status.name() != 'AT_RETAIL') or (role == 'DISTRIBUTOR' and p.status.name() == 'HARVESTED') or (role == 'RETAILER' and p.status.name() == 'IN_TRANSIT')}">
               <button type="submit" class="advance">Advance</button>
             </form>
+            <form th:if="${isAdmin}" th:action="@{/produce/{id}/status(id=${p.id})}" method="post">
+              <select name="status">
+                <option th:each="s : ${statuses}" th:value="${s}" th:text="${s}" th:selected="${s == p.status}"></option>
+              </select>
+              <button type="submit" class="set-status">Set status</button>
+            </form>
           </div>
         </td>
       </tr>

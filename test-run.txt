@@ -9,13 +9,14 @@
 [[1;34mINFO[m] Copying 5 resources from src/main/resources to target/classes
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.13.0:compile[m [1m(default-compile)[m @ [36mportal[0;1m ---[m
-[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] Recompiling the module because of [1mchanged source code[m.
+[[1;34mINFO[m] Compiling 7 source files with javac [debug parameters release 17] to target/classes
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:testResources[m [1m(default-testResources)[m @ [36mportal[0;1m ---[m
 [[1;34mINFO[m] skip non existing resourceDirectory /mnt/d/a0032/Projects/farm-portal/src/test/resources
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.13.0:testCompile[m [1m(default-testCompile)[m @ [36mportal[0;1m ---[m
-[[1;34mINFO[m] Recompiling the module because of [1mchanged source code[m.
+[[1;34mINFO[m] Recompiling the module because of [1mchanged dependency[m.
 [[1;34mINFO[m] Compiling 1 source file with javac [debug parameters release 17] to target/test-classes
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.2.5:test[m [1m(default-test)[m @ [36mportal[0;1m ---[m
@@ -25,8 +26,8 @@
 [[1;34mINFO[m]  T E S T S
 [[1;34mINFO[m] -------------------------------------------------------
 [[1;34mINFO[m] Running com.farm.portal.[1mFarmUiTest[m
-15:12:49.275 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.farm.portal.FarmUiTest]: FarmUiTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:12:52.619 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.farm.portal.FarmApplication for test class com.farm.portal.FarmUiTest
+10:46:38.263 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.farm.portal.FarmUiTest]: FarmUiTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:46:39.797 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.farm.portal.FarmApplication for test class com.farm.portal.FarmUiTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -37,59 +38,65 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2026-10-14T15:13:02.591Z  INFO 4017 --- [           main] com.farm.portal.FarmUiTest               : Starting FarmUiTest using Java 17.0.20.1 with PID 4017 (started by asha in /mnt/d/a0032/Projects/farm-portal)
-2026-10-14T15:13:02.597Z  INFO 4017 --- [           main] com.farm.portal.FarmUiTest               : No active profile set, falling back to 1 default profile: "default"
-2026-10-14T15:13:12.715Z  INFO 4017 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-10-14T15:13:13.690Z  INFO 4017 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 829 ms. Found 1 JPA repository interface.
-2026-10-14T15:13:21.816Z  INFO 4017 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-10-14T15:13:21.838Z  INFO 4017 --- [           main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.14] using APR version [1.7.2].
-2026-10-14T15:13:21.850Z  INFO 4017 --- [           main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-2026-10-14T15:13:21.958Z  INFO 4017 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-10-14T15:13:21.959Z  INFO 4017 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
-2026-10-14T15:13:22.420Z  INFO 4017 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-10-14T15:13:22.422Z  INFO 4017 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 19591 ms
-2026-10-14T15:13:24.070Z  INFO 4017 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-10-14T15:13:25.885Z  INFO 4017 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-10-14T15:13:27.406Z  INFO 4017 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-10-14T15:13:37.407Z  INFO 4017 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-10-14T15:13:37.899Z  INFO 4017 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-10-14T15:13:40.877Z  INFO 4017 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:b1d79d95-af62-47a3-b92e-ef23a57f2278 user=SA
-2026-10-14T15:13:40.901Z  INFO 4017 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-10-14T15:13:59.435Z  INFO 4017 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-10-14T15:14:00.216Z  INFO 4017 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-10-14T15:14:03.331Z  WARN 4017 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-10-14T15:14:04.504Z  INFO 4017 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name users
-2026-10-14T15:14:14.376Z  INFO 4017 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 40341 (http) with context path '/'
-2026-10-14T15:14:14.391Z  INFO 4017 --- [           main] com.farm.portal.FarmUiTest               : Started FarmUiTest in 76.032 seconds (process running for 93.533)
+2026-10-15T10:46:45.226Z  INFO 8723 --- [           main] com.farm.portal.FarmUiTest               : Starting FarmUiTest using Java 17.0.20.1 with PID 8723 (started by asha in /mnt/d/a0032/Projects/farm-portal)
+2026-10-15T10:46:45.246Z  INFO 8723 --- [           main] com.farm.portal.FarmUiTest               : No active profile set, falling back to 1 default profile: "default"
+2026-10-15T10:46:51.207Z  INFO 8723 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-15T10:46:53.375Z  INFO 8723 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2015 ms. Found 1 JPA repository interface.
+2026-10-15T10:46:55.881Z  INFO 8723 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-10-15T10:46:55.953Z  INFO 8723 --- [           main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.14] using APR version [1.7.2].
+2026-10-15T10:46:55.984Z  INFO 8723 --- [           main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-10-15T10:46:56.115Z  INFO 8723 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-15T10:46:56.115Z  INFO 8723 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-10-15T10:46:57.407Z  INFO 8723 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-15T10:46:57.410Z  INFO 8723 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11473 ms
+2026-10-15T10:46:59.123Z  INFO 8723 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-15T10:46:59.452Z  INFO 8723 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-10-15T10:46:59.913Z  INFO 8723 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-15T10:47:05.117Z  INFO 8723 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-15T10:47:05.741Z  INFO 8723 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-15T10:47:09.659Z  INFO 8723 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:feb2c335-21aa-4508-945d-4cc7934899a6 user=SA
+2026-10-15T10:47:09.667Z  INFO 8723 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-15T10:47:21.120Z  INFO 8723 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-15T10:47:21.481Z  INFO 8723 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-15T10:47:22.624Z  WARN 8723 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-15T10:47:22.928Z  INFO 8723 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name users
+2026-10-15T10:47:25.010Z  INFO 8723 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 33005 (http) with context path '/'
+2026-10-15T10:47:25.035Z  INFO 8723 --- [           main] com.farm.portal.FarmUiTest               : Started FarmUiTest in 41.916 seconds (process running for 51.786)
 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-10-14T15:14:23.423Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:23.425Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:24.160Z  INFO 4017 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-10-14T15:14:24.161Z  INFO 4017 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-10-14T15:14:24.163Z  INFO 4017 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-10-14T15:14:34.492Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:34.492Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:36.511Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:36.512Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:41.941Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:41.942Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:46.554Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:46.554Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:54.068Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:54.068Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:14:57.705Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:14:57.705Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-10-14T15:15:01.350Z  WARN 4017 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
-2026-10-14T15:15:01.350Z  WARN 4017 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 138.1 s -- in com.farm.portal.[1mFarmUiTest[m
+2026-10-15T10:47:32.962Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:32.964Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:33.760Z  INFO 8723 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-15T10:47:33.761Z  INFO 8723 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-15T10:47:33.763Z  INFO 8723 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-10-15T10:47:40.905Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:40.905Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:42.995Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:42.995Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:45.445Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:45.445Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:48.871Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:48.871Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:53.998Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:53.999Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:56.744Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:56.744Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:47:59.103Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:47:59.103Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:48:00.929Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:48:00.929Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:48:02.959Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:48:02.959Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-10-15T10:48:05.147Z  WARN 8723 --- [           main] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 155
+2026-10-15T10:48:05.147Z  WARN 8723 --- [           main] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 155.0.8059.39. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.14 s -- in com.farm.portal.[1mFarmUiTest[m
 [[1;34mINFO[m] 
 [[1;34mINFO[m] Results:
 [[1;34mINFO[m] 
-[[1;34mINFO[m] [1;32mTests run: 7, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] [1;32mTests run: 9, Failures: 0, Errors: 0, Skipped: 0[m
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] [1;32mBUILD SUCCESS[m
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  02:36 min
-[[1;34mINFO[m] Finished at: 2026-10-14T15:15:04Z
+[[1;34mINFO[m] Total time:  01:47 min
+[[1;34mINFO[m] Finished at: 2026-10-15T10:48:08Z
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
