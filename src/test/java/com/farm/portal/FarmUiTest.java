@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.openqa.selenium.support.ui.Select;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(FarmUiTest.ScreenshotOnFailure.class)
@@ -167,7 +168,36 @@ class FarmUiTest {
         assertTrue(waitForText("Produce Batches"));
         assertTrue(driver.findElements(By.className("advance")).isEmpty());
     }
+    @Test
+    void adminCanCorrectStatus() {
+        login("farmer", "farmer123");
+        assertTrue(waitForText("Logged in as"));
+        addBatch("Garlic", "Farm D");
+        assertTrue(waitForText("Garlic"));
 
+        login("admin", "admin123");
+        assertTrue(waitForText("Logged in as"));
+        // set IN_TRANSIT "by mistake", then correct it back to HARVESTED
+        driver.get(url("/produce?q=Garlic"));
+        new Select(driver.findElement(By.name("status"))).selectByValue("IN_TRANSIT");
+        safeClick(By.className("set-status"));
+        assertTrue(waitForText("to IN_TRANSIT"));
+
+        driver.get(url("/produce?q=Garlic"));
+        new Select(driver.findElement(By.name("status"))).selectByValue("HARVESTED");
+        safeClick(By.className("set-status"));
+        assertTrue(waitForText("from IN_TRANSIT to HARVESTED"));
+    }
+
+    @Test
+    void onlyAdminSeesStatusCorrection() {
+        login("distributor", "distributor123");
+        assertTrue(waitForText("Logged in as"));
+        driver.get(url("/produce"));
+        assertTrue(waitForText("Produce Batches"));
+        assertTrue(driver.findElements(By.className("set-status")).isEmpty());
+    }
+    
     // Takes a screenshot when a test fails -> target/screenshots/
     static class ScreenshotOnFailure implements TestWatcher {
         @Override

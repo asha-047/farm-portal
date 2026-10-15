@@ -25,6 +25,7 @@ public class SecurityConfig {
                 .requestMatchers("/produce/new", "/produce/*/edit").hasAnyRole("FARMER", "ADMIN")
                 .requestMatchers(HttpMethod.POST, "/produce").hasAnyRole("FARMER", "ADMIN")
                 .requestMatchers(HttpMethod.POST, "/produce/*/advance").hasAnyRole("DISTRIBUTOR", "RETAILER", "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/produce/*/status").hasRole("ADMIN")
                 .anyRequest().authenticated())
             .formLogin(form -> form
                 .loginPage("/login")
